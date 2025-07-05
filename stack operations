@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define N 5
+int stack[N];
+int top=-1;
+void push(int x)
+{
+    if(top==N-1)
+    {
+        printf("the stack is overflow");
+    }
+    else
+    {
+        top++;
+        stack[top]=x;
+    }
+}
+void display()
+{
+    if(top==-1)
+    {
+        printf("the stackis empty");
+    }
+    else
+    {
+        for(int i=top;i>=0;i--)
+        {
+            printf(" %d ",stack[i]);
+        }
+        printf("\n");
+    }
+}
+void pop()
+{
+    
+    printf(" the popped elemnt is %d\n",stack[top]);
+    top--;
+    
+}
+int main()
+{
+    int x;
+    printf("Madhavan .s 192425113 \n");
+    printf("enter the the value");
+    scanf("%d",&x);
+    push(x);
+    push(x+2);
+    display();
+    pop();
+    
+    
+    
+}

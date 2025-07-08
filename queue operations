@@ -1,0 +1,87 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define N 10
+int queue[N];
+int front=-1,rear=-1;
+
+void enqueue(int x)
+{
+    if(rear==N-1)
+    {
+        printf("overflow");
+    }
+    else if(rear==-1 && front==-1)
+    {
+        front=0;
+        rear=0;
+        queue[rear]=x;
+    }
+    else
+    {
+        rear++;
+        queue[rear]=x;
+    }
+}
+void dequeue()
+{
+    if(front==-1 && rear==-1)
+    {
+        printf("it is underflow");
+    }
+    else if(front==rear)
+    {
+        front=-1;
+        rear=-1;
+        
+    }
+    else
+    {   printf("the dequeue is  %d \n",queue[front]);
+        front++;
+    }
+}
+void display()
+{
+    if(front==-1||front>rear)
+    {
+        printf("queue is empty");
+    }
+    else
+    {  printf("the queue is :\n");
+        for(int i=front;i<=rear;i++)
+        {
+            printf(" %d ",queue[i]);
+        }
+    }
+}
+void peek()
+{
+    if(front==-1 && rear==-1)
+    {
+        printf("the queue is empty\n");
+    }
+    else
+    { 
+        printf("the peek ie the top element is %d\n",queue[front]);
+    }
+}
+void isempty()
+{
+    if(front==-1||rear==-1)
+    {
+        printf("the queue is empty\n");
+    }
+    else
+    {
+        printf("the queue is not empty\n");
+    }
+}
+int main()
+{    printf("Madhavan.S 192425113");
+    enqueue(10);
+    enqueue(11);
+    enqueue(12);
+    dequeue();
+    display();
+    peek();
+    isempty();
+}
